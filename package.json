@@ -1,0 +1,33 @@
+{
+  "name": "typing-speed-test",
+  "version": "1.0.0",
+  "description": "Check your typing speed and get statistics to help you analyze and improve your typing.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nemanjapesic/typing-speed-test.git"
+  },
+  "keywords": [
+    "touch",
+    "typing",
+    "test"
+  ],
+  "author": "Nemanja Pesic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nemanjapesic/typing-speed-test/issues"
+  },
+  "homepage": "https://nemanjapesic.github.io/typing-speed-test",
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "node-sass": "^4.12.0"
+  }
+}
