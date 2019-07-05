@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Typing Speed Test</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <main>
+        <textarea name="user-input" id="user-input" aria-hidde="true" spellcheck="false" autocapitalize="off"
+            autocomplete="off"></textarea>
+        <div class="title">
+            <h1>Typing Speed Test</h1>
+            <p>
+                Check your typing speed and get statistics to help you analyze and improve your typing.
+            </p>
+            <p>Start typing whenever you're ready!</p>
+        </div>
+        <div class="text-container-wrapper">
+            <div id="text-container"></div>
+            <div class="custom-textarea-container">
+                <textarea name="custom-textarea" id="custom-textarea"></textarea>
+                <button id="add-text-button">Add text</button>
+            </div>
+            <button id="restart-button">Restart</button>
+        </div>
+        <div id="results"></div>
+    </main>
+
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>

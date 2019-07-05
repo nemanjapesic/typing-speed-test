@@ -1,1 +1,125 @@
-$primaryColor: #ff2233;
+@import "variables";
+
+// GENERAL
+:root {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: $textColor;
+  background: $bgColor;
+  background: linear-gradient(180deg, $primaryColorLight, $primaryColorDark)
+    fixed;
+}
+
+// MAIN
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background: $bgColorDark;
+
+  .title {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+
+    h1 {
+      margin: 20px 0;
+      color: $primaryColorLight;
+      font-size: 3.5rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  #user-input {
+    position: absolute;
+    top: -100px;
+    opacity: 0;
+    user-select: none;
+    resize: none;
+  }
+
+  .text-container-wrapper {
+      max-width: 960px;
+      width: 100%;
+      padding: 0 10px;
+  }
+
+  #text-container,
+  .custom-textarea-container,
+  #custom-textarea {
+      width: 100%;
+      padding: 10px;
+      height: 400px;
+      color: $textColor;
+      font-size: 1.8rem;
+      font-family: 'Courier New', Courier, monospace;
+      border-radius: 5px;
+      background-color: $bgColor;
+      overflow-wrap: break-word;
+      cursor: pointer;
+  }
+
+  .custom-textarea-container {
+      box-shadow: 0 0 3px 1px $bgColorLight;
+      display: none;
+  }
+
+  #custom-textarea {
+      width: 100%;
+      height: 400px;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 1px;
+      line-height: 1.2rem;
+      outline: none;
+      border: none;
+      resize: none;
+      overflow: auto;
+  }
+
+  button {
+      width: 100%;
+      height: 40px;
+      margin-top: 10px;
+      background: $bgColorLight;
+      border-style: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+          background: $primaryColorLight;
+      }
+  }
+
+  #restart-button {
+      display: block;
+      width: 100%;
+      display: none;
+  }
+}

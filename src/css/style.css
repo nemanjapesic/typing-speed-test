@@ -1,0 +1,92 @@
+:root {
+  font-size: 16px; }
+
+* {
+  box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  color: #bbb;
+  background: #3a3a3a;
+  background: linear-gradient(180deg, #a3b6df, #3f3371) fixed; }
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background: #1e1e1e; }
+  main .title {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem; }
+    main .title h1 {
+      margin: 20px 0;
+      color: #a3b6df;
+      font-size: 3.5rem;
+      text-transform: uppercase; }
+    main .title p {
+      width: 90%;
+      margin: 0 auto; }
+  main #user-input {
+    position: absolute;
+    top: -100px;
+    opacity: 0;
+    user-select: none;
+    resize: none; }
+  main .text-container-wrapper {
+    max-width: 960px;
+    width: 100%;
+    padding: 0 10px; }
+  main #text-container,
+  main .custom-textarea-container,
+  main #custom-textarea {
+    width: 100%;
+    padding: 10px;
+    height: 400px;
+    color: #bbb;
+    font-size: 1.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    background-color: #3a3a3a;
+    overflow-wrap: break-word;
+    cursor: pointer; }
+  main .custom-textarea-container {
+    box-shadow: 0 0 3px 1px #eee;
+    display: none; }
+  main #custom-textarea {
+    width: 100%;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    line-height: 1.2rem;
+    outline: none;
+    border: none;
+    resize: none;
+    overflow: auto; }
+  main button {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background: #eee;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer; }
+    main button:hover {
+      background: #a3b6df; }
+  main #restart-button {
+    display: block;
+    width: 100%;
+    display: none; }
