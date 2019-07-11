@@ -2,22 +2,22 @@
 
 // GENERAL
 :root {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   color: $textColor;
   background: $bgColor;
   background: linear-gradient(180deg, $primaryColorLight, $primaryColorDark)
@@ -27,26 +27,26 @@ body {
 // MAIN
 
 main {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 1200px;
   width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
+  padding: 10px;
   background: $bgColorDark;
 
   .title {
     width: 100%;
-    margin: 20px 0;
+    margin-bottom: 30px;
     text-align: center;
-    font-family: "Montserrat", sans-serif;
     font-size: 1.4rem;
 
     h1 {
       margin: 20px 0;
       color: $primaryColorLight;
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       text-transform: uppercase;
     }
 
@@ -65,61 +65,173 @@ main {
   }
 
   .text-container-wrapper {
-      max-width: 960px;
-      width: 100%;
-      padding: 0 10px;
+    max-width: 900px;
+    width: 100%;
   }
 
   #text-container,
-  .custom-textarea-container,
-  #custom-textarea {
-      width: 100%;
-      padding: 10px;
-      height: 400px;
+  textarea#custom-text-area {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: $textColor;
+    font-size: 1.8rem;
+    font-family: "Courier New", Courier, monospace;
+    border-radius: 5px;
+    background-color: $bgColor;
+    overflow-wrap: break-word;
+    cursor: pointer;
+  }
+
+  .custom-text-area-container {
+    display: none;
+  }
+
+  textarea#custom-text-area {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2px 0 $bgColorLight;
+    resize: none;
+    overflow: auto;
+  }
+
+  .stats {
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: $primaryColorLight;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px $primaryColorLight;
+
+    span {
+      font-weight: bold;
       color: $textColor;
-      font-size: 1.8rem;
-      font-family: 'Courier New', Courier, monospace;
-      border-radius: 5px;
-      background-color: $bgColor;
-      overflow-wrap: break-word;
-      cursor: pointer;
-  }
-
-  .custom-textarea-container {
-      box-shadow: 0 0 3px 1px $bgColorLight;
-      display: none;
-  }
-
-  #custom-textarea {
-      width: 100%;
-      height: 400px;
-      margin: 0;
-      padding: 0;
-      letter-spacing: 1px;
-      line-height: 1.2rem;
-      outline: none;
-      border: none;
-      resize: none;
-      overflow: auto;
+      span {
+        margin: 0 1px 0 0;
+        padding: 1px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: normal;
+        color: initial;
+        border-radius: 2px;
+        background-color: $bgColorLight;
+      }
+    }
   }
 
   button {
-      width: 100%;
-      height: 40px;
-      margin-top: 10px;
-      background: $bgColorLight;
-      border-style: none;
-      border-radius: 5px;
-      cursor: pointer;
+    max-width: 900px;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    background: $primaryColorLight;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
 
-      &:hover {
-          background: $primaryColorLight;
-      }
+    &:hover {
+      background: $primaryColorDark;
+    }
   }
 
   #restart-button {
-      display: block;
-      width: 100%;
-      display: none;
+    width: 100%;
+    display: none;
+  }
+}
+
+/* CONTAINER OUTLINE */
+
+.focused {
+  box-shadow: 0 0 2px 1px $primaryColorLight;
+}
+
+.blurred {
+  box-shadow: 0 0 2px 0 $bgColorLight;
+}
+
+/* LETTER STYLES */
+
+i {
+  display: inline-block;
+}
+
+span {
+  border-radius: 2px;
+  margin: 0 1px 0 0;
+}
+
+/* CHARACTER HIGHLIGHTING */
+
+.incorrect {
+  color: #000;
+  background-color: #ffcdcd;
+}
+
+.was-incorrect {
+  color: #000;
+  background-color: #ffebba;
+}
+
+.corrected {
+  color: $bgColorLight;
+  background-color: initial;
+  background: initial;
+}
+
+.correct {
+  color: initial;
+  background-color: $bgColorLight;
+}
+
+.current {
+  background-color: #555;
+  animation: flash-cursor 1s infinite;
+}
+
+/* ANIMATIONS */
+
+@keyframes flash-cursor {
+  0% {
+    border-bottom: 2px solid #888;
+  }
+  45% {
+    border-bottom: 2px solid #888;
+  }
+  50% {
+    border-bottom: 2px solid #555;
+  }
+  100% {
+    border-bottom: 2px solid #555;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 430px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    font-size: 26px;
+  }
+
+  main {
+    max-width: 1800px;
+  }
+
+  .text-container-wrapper {
+    max-width: 1600px;
   }
 }
