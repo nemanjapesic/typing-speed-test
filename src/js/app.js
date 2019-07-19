@@ -272,10 +272,10 @@ const consoleLogResults = () => {
     console.log("Correct characters: " + correctChars);
     console.log("Incorrect characters: " + incorrectChars);
     console.log("Backspaces: " + backspaces);
-    console.log("Top 10 fastest characters: ");
+    console.log("Fastest characters: ");
     // console.table(charSpeed);
     console.table(charSpeedResults.slice(0, 10));
-    console.log("Top 10 slowest characters: ");
+    console.log("Slowest characters: ");
     console.table(charSpeedResults.slice((charSpeedResults.length - 10), charSpeedResults.length).reverse());
     console.log("Least accurate characters: ");
     // console.table(charAccuracy);
@@ -361,6 +361,7 @@ const addCustomText = () => {
 };
 
 const showAddCustomText = () => {
+    restart();
     textContainer.style.display = "none";
     textArea.parentElement.style.display = "block";
     textArea.value = text;

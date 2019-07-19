@@ -132,13 +132,15 @@ main {
     width: 100%;
     height: 40px;
     margin-top: 10px;
-    background: $primaryColorLight;
     border-style: none;
+    border: 1px solid $primaryColorLight;
     border-radius: 5px;
+    background: transparent;
+    color: $textColor;
     cursor: pointer;
 
     &:hover {
-      background: $primaryColorDark;
+      background: $bgColor;
     }
   }
 

@@ -14,7 +14,7 @@ body {
   padding: 0;
   color: #fff;
   background: #2e2e2e;
-  background: linear-gradient(180deg, #28b9ff, #0096e6) fixed; }
+  background: linear-gradient(180deg, #28b9ff, #00a0f0) fixed; }
 
 main {
   display: flex;
@@ -100,12 +100,14 @@ main {
     width: 100%;
     height: 40px;
     margin-top: 10px;
-    background: #28b9ff;
     border-style: none;
+    border: 1px solid #28b9ff;
     border-radius: 5px;
+    background: transparent;
+    color: #fff;
     cursor: pointer; }
     main button:hover {
-      background: #0096e6; }
+      background: #2e2e2e; }
   main #restart-button {
     width: 100%;
     display: none; }
