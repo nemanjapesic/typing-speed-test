@@ -1,12 +1,12 @@
 'use strict';
 const gulp = require('gulp');
+const babel = require('gulp-babel');
 const uglify = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-var sass = require('gulp-sass');
+const sass = require('gulp-sass');
 
 sass.compiler = require('node-sass');
-
 
 // Copy ALL HTML files
 gulp.task('copyHTML', async () => {
@@ -17,26 +17,29 @@ gulp.task('copyHTML', async () => {
 // Transpile SASS
 gulp.task('sass', async () => {
     return gulp.src('src/scss/style.scss')
-      .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('src/css'));
-  });
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('src/css'));
+});
 
 // Autoprefix and Minify CSS
 gulp.task('css', async () => {
     gulp.src('src/css/*.css')
-    .pipe(autoprefixer({
-        cascade: false
-    }))
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/css'));
-})
-
-// Minify JS
-gulp.task('scripts', async () => {
-    gulp.src('src/js/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(cleanCSS({ compatibility: 'ie8' }))
+        .pipe(gulp.dest('dist/css'));
 });
+
+// Babel and Minify JS
+gulp.task('scripts', async () =>
+    gulp.src('src/js/app.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'))
+);
 
 // Watch for changes
 gulp.task('watch', async () => {

@@ -22,6 +22,7 @@ const leastAccurateCharactersUi = document.querySelector("#least-accurate-charac
 let text = "Welcome to the Typing Speed Test.\nTyping this short introduction text will assess your typing and provide you with statistics, including: typing speed in WPM (Words per Minute) and CPM (Characters per Minute), accuracy, unproductive keystrokes, fastest and slowest as well as the least accurate characters.\nYou can also double-click this box to set your own custom text for the test.\nHappy typing!";
 
 // text = "Pack my box with five dozen liquor jugs.";
+// text = "Quick brown fox jumps over the lazy dog.";
 
 // Initialize Values
 let totalTyped = 0,
