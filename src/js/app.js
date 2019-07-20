@@ -21,7 +21,7 @@ const leastAccurateCharactersUi = document.querySelector("#least-accurate-charac
 // Default placeholder text
 let text = "Welcome to the Typing Speed Test.\nTyping this short introduction text will assess your typing and provide you with statistics, including: typing speed in WPM (Words per Minute) and CPM (Characters per Minute), accuracy, unproductive keystrokes, fastest and slowest as well as the least accurate characters.\nYou can also double-click this box to set your own custom text for the test.\nHappy typing!";
 
-// text = "Pack my box with five dozen liquor jugs.";
+text = "Pack my box with five dozen liquor jugs.";
 // text = "Quick brown fox jumps over the lazy dog.";
 
 // Initialize Values
@@ -52,12 +52,6 @@ textArea.value = text;
 const startTest = (event) => {
     // start
     if (!finished) {
-        // if (!getEl(currentChar)) {
-        //     alert("Please enter the text");
-        //     userInput.value = "";
-        //     return;
-        // }
-
         if (currentChar === 0) startTimer = new Date().getTime();
 
         if (userInput.value.length > text.length) {
@@ -82,8 +76,6 @@ const startTest = (event) => {
             trackCharAccuracyWrong();
         }
 
-        charStart = new Date().getTime();
-
         handleCurrentChar();
 
         if (correctChars + incorrectChars === text.length) {
@@ -97,6 +89,8 @@ const getEl = (id) => {
 };
 
 const handleCurrentChar = () => {
+    charStart = new Date().getTime();
+
     if (currentChar < text.length - 1) {
         getEl(currentChar + 1).classList.add("current");
     }
@@ -181,8 +175,6 @@ const finishedTyping = () => {
 
         displayScore();
 
-        restartButton.style.display = "block";
-
         resetAll();
     }, 500);
 
@@ -252,36 +244,36 @@ const displayScore = () => {
 
     showResults();
 
-    consoleLogResults();
+    // consoleLogResults();
 };
 
-const consoleLogResults = () => {
-    console.log("Elapsed time: " + Math.round(elapsedTime / 1000) + " seconds");
-    console.log("Your speed is: " + wpm + " WPM");
-    console.log("CPM: " + cpm);
-    console.log(
-        "Accuracy: " + accuracy + "%"
-    );
-    console.log("Total errors: " + errors);
-    console.log(
-        "Unproductive keystrokes percentage: " +
-        unproductiveKeystrokes +
-        "%"
-    );
-    console.log("Text length: " + text.length);
-    console.log("Total characters typed: " + (totalTyped + backspaces));
-    console.log("Correct characters: " + correctChars);
-    console.log("Incorrect characters: " + incorrectChars);
-    console.log("Backspaces: " + backspaces);
-    console.log("Fastest characters: ");
-    // console.table(charSpeed);
-    console.table(charSpeedResults.slice(0, 10));
-    console.log("Slowest characters: ");
-    console.table(charSpeedResults.slice((charSpeedResults.length - 10), charSpeedResults.length).reverse());
-    console.log("Least accurate characters: ");
-    // console.table(charAccuracy);
-    console.table(charAccuracyResults);
-};
+// const consoleLogResults = () => {
+//     console.log("Elapsed time: " + Math.round(elapsedTime / 1000) + " seconds");
+//     console.log("Your speed is: " + wpm + " WPM");
+//     console.log("CPM: " + cpm);
+//     console.log(
+//         "Accuracy: " + accuracy + "%"
+//     );
+//     console.log("Total errors: " + errors);
+//     console.log(
+//         "Unproductive keystrokes percentage: " +
+//         unproductiveKeystrokes +
+//         "%"
+//     );
+//     console.log("Text length: " + text.length);
+//     console.log("Total characters typed: " + (totalTyped + backspaces));
+//     console.log("Correct characters: " + correctChars);
+//     console.log("Incorrect characters: " + incorrectChars);
+//     console.log("Backspaces: " + backspaces);
+//     console.log("Fastest characters: ");
+//     // console.table(charSpeed);
+//     console.table(charSpeedResults.slice(0, 10));
+//     console.log("Slowest characters: ");
+//     console.table(charSpeedResults.slice((charSpeedResults.length - 10), charSpeedResults.length).reverse());
+//     console.log("Least accurate characters: ");
+//     // console.table(charAccuracy);
+//     console.table(charAccuracyResults);
+// };
 
 const resetResults = () => {
     wpmUi.textContent = 0;
@@ -296,7 +288,6 @@ const resetResults = () => {
 };
 
 const setText = () => {
-
     textContainer.innerHTML = "";
 
     finished = false;
@@ -356,9 +347,7 @@ const setChars = (arr, container) => {
 const addCustomText = () => {
     text = textArea.value.replace(/  +/g, "");
     if (textArea.value.length > 0) setText();
-    textArea.parentElement.style.display = "none";
-    restartButton.style.display = "none";
-    textContainer.style.display = "block";
+    hideAddCustomText();
 };
 
 const showAddCustomText = () => {
@@ -371,17 +360,18 @@ const showAddCustomText = () => {
 
 const hideAddCustomText = () => {
     textArea.parentElement.style.display = "none";
+    textContainer.style.display = "block";
     userInput.focus();
 };
 
 const showResults = () => {
-    // textContainer.style.display = "none";
     stats.style.display = "flex";
+    restartButton.style.display = "block";
 };
 
 const hideResults = () => {
     stats.style.display = "none";
-    // textContainer.style.display = "block";
+    restartButton.style.display = "none";
 };
 
 const restart = () => {
@@ -390,16 +380,9 @@ const restart = () => {
     hideResults();
 
     textArea.parentElement.style.display = "none";
-    restartButton.style.display = "none";
 };
 
 const resetAll = () => {
-    resetValues();
-
-    if (!finished) getEl(currentChar).classList.add("current");
-};
-
-const resetValues = () => {
     elapsedTime = 0;
     currentChar = 0;
     correctChars = 0;
@@ -420,17 +403,9 @@ const resetValues = () => {
     charAccuracyResults = [];
     userInput.value = "";
     textArea.value = "";
-};
 
-// const resetCharStyles = () => {
-//     for (let i = 0; i < text.length; i++) {
-//         document.getElementById(i).classList.remove("current");
-//         document.getElementById(i).classList.remove("correct");
-//         document.getElementById(i).classList.remove("incorrect");
-//         document.getElementById(i).classList.remove("was-incorrect");
-//         document.getElementById(i).classList.remove("corrected");
-//     }
-// };
+    if (!finished) getEl(currentChar).classList.add("current");
+};
 
 // Add event listeners
 userInput.addEventListener("input", startTest);
@@ -445,8 +420,10 @@ userInput.addEventListener("keydown", event => {
 });
 
 const handleBackspacedChars = () => {
-    if (currentChar > 0) backspaces++;
-    if (currentChar > 0) currentChar--;
+    if (currentChar > 0) {
+        backspaces++;
+        currentChar--;
+    }
 
     if (userInput.value[currentChar] === text[currentChar]) {
         if (correctChars > 0) correctChars--;
