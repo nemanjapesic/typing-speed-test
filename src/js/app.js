@@ -170,7 +170,7 @@ const trackCharAccuracyWrong = () => {
 };
 
 const updateProgress = () => {
-    percentageDone = ((currentChar / text.length) * 100).toFixed(2);
+    const percentageDone = ((currentChar / text.length) * 100).toFixed(2);
     progressUi.style.width = `${percentageDone}%`;
 }
 
