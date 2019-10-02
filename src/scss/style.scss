@@ -67,6 +67,18 @@ main {
   .text-container-wrapper {
     max-width: 900px;
     width: 100%;
+
+    .progress {
+      margin: 10px 0;
+      border-bottom: 1px solid #5d5d5d;
+
+      .progress-inner {
+        width: 0%;
+        height: 4px;
+        background: #28b9ff;
+        border-radius: 2px;
+      }
+    }
   }
 
   #text-container,

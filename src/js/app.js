@@ -8,6 +8,7 @@ const textContainer = document.querySelector("#text-container");
 const userInput = document.querySelector("#user-input");
 const stats = document.querySelector(".stats");
 
+const progressUi = document.querySelector(".progress-inner");
 const wpmUi = document.querySelector("#wpm");
 const cpmUi = document.querySelector("#cpm");
 const errorsUi = document.querySelector("#errors");
@@ -21,7 +22,7 @@ const leastAccurateCharactersUi = document.querySelector("#least-accurate-charac
 // Default placeholder text
 let text = "Welcome to the Typing Speed Test.\nTyping this short introduction text will assess your typing and provide you with statistics, including: typing speed in WPM (Words per Minute) and CPM (Characters per Minute), accuracy, unproductive keystrokes, fastest and slowest as well as the least accurate characters.\nYou can also double-click this box to set your own custom text for the test.\nHappy typing!";
 
-text = "Pack my box with five dozen liquor jugs.";
+// text = "Pack my box with five dozen liquor jugs.";
 // text = "Quick brown fox jumps over the lazy dog.";
 
 // Initialize Values
@@ -101,6 +102,8 @@ const handleCurrentChar = () => {
     } else {
         currentChar = userInput.value.length;
     }
+
+    updateProgress();
 };
 
 const handleCorrectChars = () => {
@@ -165,6 +168,15 @@ const trackCharAccuracyWrong = () => {
         charAccuracy[text[currentChar]].wrong++;
     }
 };
+
+const updateProgress = () => {
+    percentageDone = ((currentChar / text.length) * 100).toFixed(2);
+    progressUi.style.width = `${percentageDone}%`;
+}
+
+const resetProgress = () => {
+    progressUi.style.width = "0%";
+}
 
 const finishedTyping = () => {
     // finished
@@ -378,6 +390,7 @@ const restart = () => {
     setText();
     resetResults();
     hideResults();
+    resetProgress();
 
     textArea.parentElement.style.display = "none";
 };
@@ -443,6 +456,8 @@ const handleBackspacedChars = () => {
     getEl(currentChar).classList.remove("was-incorrect");
 
     userInput.value = userInput.value.slice(0, -1);
+
+    updateProgress();
 };
 
 userInput.addEventListener("blur", () => {

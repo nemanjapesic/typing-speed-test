@@ -16,32 +16,35 @@
             autocomplete="off"></textarea>
         <div class="title">
             <h1>Typing Speed Test</h1>
-            
+
             <p>Start typing whenever you're ready!</p>
         </div>
         <div class="text-container-wrapper">
+            <div class="progress">
+                <div class="progress-inner"></div>
+            </div>
             <div id="text-container"></div>
             <div class="custom-text-area-container">
-                <textarea name="custom-text-area" id="custom-text-area" rows="10" aria-hidde="true" spellcheck="false" autocapitalize="off"
-                autocomplete="off"></textarea>
+                <textarea name="custom-text-area" id="custom-text-area" rows="10" aria-hidde="true" spellcheck="false"
+                    autocapitalize="off" autocomplete="off"></textarea>
                 <button id="add-text-button">Add text</button>
             </div>
         </div>
         <div class="stats">
             <div>
-              <p>Speed:&nbsp;<span id="wpm">0</span> WPM (<span id="cpm">0</span> CPM)</p>
-              <p>Accuracy:&nbsp;<span id="accuracy">0</span>%</p>
-              <p>Errors:&nbsp;<span id="errors">0</span></p>
-              <p>Unproductive keystrokes:&nbsp;<span id="unproductive-keystrokes">0</span>%</p>
+                <p>Speed:&nbsp;<span id="wpm">0</span> WPM (<span id="cpm">0</span> CPM)</p>
+                <p>Accuracy:&nbsp;<span id="accuracy">0</span>%</p>
+                <p>Errors:&nbsp;<span id="errors">0</span></p>
+                <p>Unproductive keystrokes:&nbsp;<span id="unproductive-keystrokes">0</span>%</p>
             </div>
             <div>
-              <p>Elapsed time:&nbsp;<span id="elapsed-time"> </span></p>
-              <p>Fastest keys:&nbsp;<span id="fastest-characters"> </span></p>
-              <p>Slowest keys:&nbsp;<span id="slowest-characters"> </span></p>
-              <p>Least accurate keys:&nbsp;<span id="least-accurate-characters"> </span></p>
+                <p>Elapsed time:&nbsp;<span id="elapsed-time"> </span></p>
+                <p>Fastest keys:&nbsp;<span id="fastest-characters"> </span></p>
+                <p>Slowest keys:&nbsp;<span id="slowest-characters"> </span></p>
+                <p>Least accurate keys:&nbsp;<span id="least-accurate-characters"> </span></p>
             </div>
-          </div>
-          <button id="restart-button">Restart</button>
+        </div>
+        <button id="restart-button">Restart</button>
     </main>
 
     <script type="text/javascript" src="js/app.js"></script>
