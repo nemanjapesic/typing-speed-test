@@ -22,15 +22,15 @@
   },
   "homepage": "https://nemanjapesic.github.io/typing-speed-test",
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "gh-pages": "^2.0.1",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "gh-pages": "^2.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify-es": "^1.0.4",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.13.1"
   }
 }
