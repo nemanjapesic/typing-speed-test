@@ -13,8 +13,7 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  background: #2e2e2e;
-  background: linear-gradient(180deg, #28b9ff, #00a0f0) fixed; }
+  background: linear-gradient(125deg, #272727, #1e1e1e); }
 
 main {
   display: flex;
@@ -24,8 +23,7 @@ main {
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 10px;
-  background: #1e1e1e; }
+  padding: 10px; }
   main .title {
     width: 100%;
     margin-bottom: 30px;
@@ -33,7 +31,7 @@ main {
     font-size: 1.4rem; }
     main .title h1 {
       margin: 20px 0;
-      color: #28b9ff;
+      color: #a0db15;
       font-size: 3.2rem;
       text-transform: uppercase; }
     main .title p {
@@ -54,7 +52,7 @@ main {
       main .text-container-wrapper .progress .progress-inner {
         width: 0%;
         height: 4px;
-        background: #28b9ff;
+        background: #a0db15;
         border-radius: 2px; }
   main #text-container,
   main textarea#custom-text-area {
@@ -65,7 +63,7 @@ main {
     font-size: 1.8rem;
     font-family: "Courier New", Courier, monospace;
     border-radius: 5px;
-    background-color: #2e2e2e;
+    background-color: #272727;
     overflow-wrap: break-word;
     cursor: pointer; }
   main .custom-text-area-container {
@@ -89,9 +87,9 @@ main {
     width: 100%;
     padding: 10px;
     font-size: 1.2rem;
-    color: #28b9ff;
+    color: #a0db15;
     border-radius: 5px;
-    box-shadow: 0 0 2px 1px #28b9ff; }
+    box-shadow: 0 0 2px 1px #a0db15; }
     main .stats span {
       font-weight: bold;
       color: #fff; }
@@ -109,20 +107,21 @@ main {
     height: 40px;
     margin-top: 10px;
     border-style: none;
-    border: 1px solid #28b9ff;
+    border: 1px solid #a0db15;
     border-radius: 5px;
     background: transparent;
     color: #fff;
+    outline: none;
     cursor: pointer; }
     main button:hover {
-      background: #2e2e2e; }
+      background: #272727; }
   main #restart-button {
     width: 100%;
     display: none; }
 
 /* CONTAINER OUTLINE */
 .focused {
-  box-shadow: 0 0 2px 1px #28b9ff; }
+  box-shadow: 0 0 2px 1px #a0db15; }
 
 .blurred {
   box-shadow: 0 0 2px 0 #eee; }

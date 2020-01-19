@@ -19,9 +19,7 @@ body {
   margin: 0;
   padding: 0;
   color: $textColor;
-  background: $bgColor;
-  background: linear-gradient(180deg, $primaryColorLight, $primaryColorDark)
-    fixed;
+  background: linear-gradient(125deg, $bgColor, $bgColorDark);
 }
 
 // MAIN
@@ -35,7 +33,6 @@ main {
   min-height: 100vh;
   margin: 0 auto;
   padding: 10px;
-  background: $bgColorDark;
 
   .title {
     width: 100%;
@@ -75,7 +72,7 @@ main {
       .progress-inner {
         width: 0%;
         height: 4px;
-        background: #28b9ff;
+        background: $primaryColorLight;
         border-radius: 2px;
       }
     }
@@ -149,6 +146,7 @@ main {
     border-radius: 5px;
     background: transparent;
     color: $textColor;
+    outline: none;
     cursor: pointer;
 
     &:hover {
